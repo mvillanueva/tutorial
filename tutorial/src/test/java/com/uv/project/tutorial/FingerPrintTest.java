@@ -10,6 +10,8 @@ public class FingerPrintTest {
 	public static final String VALID_FINGER_PRINT_THUMB="F1234GJRIRJG1838THUMB";
 	public static final String INVALID_FINGER_PRINT_THUMB="V5678TTTUTUT45THUMB";
 	
+	public static final String VALID_FINGER_PRINT_INDEX="F1234GJRIRJG1838INDEX";
+	
 	public static final int VALID_QUALITY=5;
 	
 	@Test
@@ -49,8 +51,8 @@ public class FingerPrintTest {
 	@Test
 	public void hasTheCorrectTypeShouldFailWithCorrespondingType(){
 		FingerPrint finger=new FingerPrint(
-				VALID_FINGER_PRINT_THUMB,
-				BiometricUtilities.FINGER_TYPE.INDEX,
+				VALID_FINGER_PRINT_INDEX,
+				BiometricUtilities.FINGER_TYPE.THUMB,
 				VALID_QUALITY
 				);
 		assertFalse(finger.hasTheCorrectType());
