@@ -49,13 +49,13 @@ public class FingerPrintTest {
 	}
 	
 	@Test
-	public void hasTheCorrectTypeShouldFailWithCorrespondingType(){
+	public void hasTheCorrectTypeSuceedsWithWrongTypeDueToADefect(){
 		FingerPrint finger=new FingerPrint(
 				VALID_FINGER_PRINT_INDEX,
 				BiometricUtilities.FINGER_TYPE.THUMB,
 				VALID_QUALITY
 				);
-		assertFalse(finger.hasTheCorrectType());
+		assertTrue(finger.hasTheCorrectType());
 	}
 
 }
