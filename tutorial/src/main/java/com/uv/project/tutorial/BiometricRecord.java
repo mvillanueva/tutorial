@@ -1,36 +1,32 @@
 package com.uv.project.tutorial;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BiometricRecord {
-	public final int THUMB=0;
-	public final int INDEX=1;
-	public final int MIDDLE=2;
-	public final int RING=3;
-	public final int PINKIE=4;
+	private static final int MINIMUM_QUALITY=2;
 		
 	private List<FingerPrint> listFingerPrint;
-	private int num;
 	
-	public BiometricRecord(){}
+	public BiometricRecord(){
+		listFingerPrint=new ArrayList<FingerPrint>();
+	}
 	
 	public void addFingerPrint(FingerPrint newFinger){
 		this.listFingerPrint.add(newFinger);
-		num=this.listFingerPrint.size();
 	}
 	
 	public void removedFingerPrint(FingerPrint newFinger){
 		this.listFingerPrint.remove(newFinger);
-		num=this.listFingerPrint.size();
 	}
 	
 	public int getNumFingerPrints(){
-		return num;
+		return this.listFingerPrint.size();
 	}
 	
 	public boolean haveFingerPrintsGoodQuality(){
-		for(FingerPrint f:this.listFingerPrint){
-			if(f.getQuality()<2)
+		for(FingerPrint finger:this.listFingerPrint){
+			if(finger.getQuality()<MINIMUM_QUALITY)
 				return false;
 		}
 		return true;		
